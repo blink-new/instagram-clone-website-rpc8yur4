@@ -3,265 +3,304 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>milo_beats • Instagram</title>
+  <title>Instagram • milo_beats</title>
   <link rel="stylesheet" href="instagram.css">
 </head>
 <body>
-  <div class="instagram-container">
-    <!-- Instagram Header -->
-    <div class="instagram-header">
-      <div class="back-arrow">←</div>
-      <div class="username-header">milo_beats</div>
-      <div class="menu-dots">⋯</div>
-    </div>
-
-    <!-- Stories Preview -->
-    <div class="stories-preview">
-      <div class="stories-container">
-        <div class="story-item">
-          <div class="story-ring">
-            <div class="story-avatar">📖</div>
-          </div>
-          <div class="story-label">Studio setup</div>
+  <div class="instagram-desktop">
+    <!-- Desktop Header -->
+    <header class="desktop-header">
+      <div class="header-container">
+        <div class="header-left">
+          <div class="instagram-logo">Instagram</div>
         </div>
-        <div class="story-item">
-          <div class="story-ring">
-            <div class="story-avatar">🌧️</div>
+        <div class="header-center">
+          <div class="search-bar">
+            <input type="text" placeholder="Search" class="search-input">
+            <div class="search-icon">🔍</div>
           </div>
-          <div class="story-label">Rainy playlist</div>
         </div>
-        <div class="story-item">
-          <div class="story-ring">
-            <div class="story-avatar">🎵</div>
+        <div class="header-right">
+          <div class="nav-icons">
+            <div class="nav-icon">🏠</div>
+            <div class="nav-icon">💬</div>
+            <div class="nav-icon">➕</div>
+            <div class="nav-icon">🧭</div>
+            <div class="nav-icon">❤️</div>
+            <div class="nav-icon profile-icon">👤</div>
           </div>
-          <div class="story-label">Band outtakes</div>
         </div>
       </div>
-    </div>
+    </header>
 
-    <!-- Profile Section -->
-    <div class="profile-section">
-      <div class="profile-info">
-        <div class="profile-pic">
-          <div class="profile-pic-inner">🥁</div>
+    <div class="desktop-main">
+      <!-- Left Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-content">
+          <div class="sidebar-item active">
+            <div class="sidebar-icon">🏠</div>
+            <span class="sidebar-text">Home</span>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon">🔍</div>
+            <span class="sidebar-text">Search</span>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon">🧭</div>
+            <span class="sidebar-text">Explore</span>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon">🎬</div>
+            <span class="sidebar-text">Reels</span>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon">💬</div>
+            <span class="sidebar-text">Messages</span>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon">❤️</div>
+            <span class="sidebar-text">Notifications</span>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon">➕</div>
+            <span class="sidebar-text">Create</span>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon">👤</div>
+            <span class="sidebar-text">Profile</span>
+          </div>
         </div>
-        <div class="profile-stats">
-          <div class="stats-row">
-            <div class="stat">
-              <div class="stat-number">127</div>
-              <div class="stat-label">posts</div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Stories Section -->
+        <div class="stories-section">
+          <div class="stories-container">
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-avatar">📖</div>
+              </div>
+              <div class="story-label">Studio setup</div>
             </div>
-            <div class="stat">
-              <div class="stat-number">1.4k</div>
-              <div class="stat-label">followers</div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-avatar">🌧️</div>
+              </div>
+              <div class="story-label">Rainy playlist</div>
             </div>
-            <div class="stat">
-              <div class="stat-number">892</div>
-              <div class="stat-label">following</div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-avatar">🎵</div>
+              </div>
+              <div class="story-label">Band outtakes</div>
             </div>
-          </div>
-          <div class="profile-actions">
-            <button class="action-btn btn-following">Following</button>
-            <button class="action-btn btn-message">Message</button>
-            <button class="action-btn btn-contact">Contact</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bio -->
-      <div class="bio">
-        <div class="display-name">
-          Milo Dray | he/him | 17 | Drummer/Keys, Wildfire Veil
-        </div>
-        <div class="bio-text">
-          🥁 Drums & keys | Sound explorer | Science + music kid
-        </div>
-        <div class="bio-quote">"Quiet beats, deep thoughts."</div>
-        <div class="bio-text">
-          🦉 Owl fan | Market District | Rooftop survivor
-        </div>
-        <a href="#" class="bio-link">wildfireveil.band</a>
-      </div>
-
-      <!-- Story Highlights -->
-      <div class="highlights-section">
-        <div class="highlights-scroll">
-          <div class="highlight">
-            <div class="highlight-circle">🥁</div>
-            <div class="highlight-label">Drum Clips</div>
-          </div>
-          <div class="highlight">
-            <div class="highlight-circle">🎹</div>
-            <div class="highlight-label">Keys</div>
-          </div>
-          <div class="highlight">
-            <div class="highlight-circle">🦉</div>
-            <div class="highlight-label">Sketches</div>
-          </div>
-          <div class="highlight">
-            <div class="highlight-circle">🎵</div>
-            <div class="highlight-label">Tutorials</div>
-          </div>
-          <div class="highlight">
-            <div class="highlight-circle">🎧</div>
-            <div class="highlight-label">Record Finds</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tab Navigation -->
-    <div class="tab-navigation">
-      <div class="tab active" onclick="showTab('posts')">
-        <div class="tab-icon">⊞</div>
-      </div>
-      <div class="tab" onclick="showTab('reels')">
-        <div class="tab-icon">▶</div>
-      </div>
-      <div class="tab" onclick="showTab('tagged')">
-        <div class="tab-icon">👤</div>
-      </div>
-    </div>
-
-    <!-- Posts Grid -->
-    <div id="posts" class="posts-section active">
-      <div class="posts-grid">
-        <div class="post-item">
-          <div class="video-indicator">🎥</div>
-          <div class="post-content">
-            <span class="post-emoji">🥁</span>
-            <div>Drum practice closeup</div>
-            <div class="post-caption">"Rainy morning groove"</div>
-          </div>
-          <div class="owl-doodle">🦉</div>
-        </div>
-        <div class="post-item">
-          <div class="post-content">
-            <span class="post-emoji">🎹</span>
-            <div>Synth jam at sunset</div>
-            <div class="post-caption">"Soundtrack for a quiet night"</div>
-          </div>
-        </div>
-        <div class="post-item">
-          <div class="post-content">
-            <span class="post-emoji">🎵</span>
-            <div>Band photo</div>
-            <div class="post-caption">"Steady heart, wild friends"</div>
-          </div>
-        </div>
-        <div class="post-item">
-          <div class="post-content">
-            <span class="post-emoji">📝</span>
-            <div>Sketchbook page</div>
-            <div class="post-caption">
-              "What my brain looks like at midnight"
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-avatar">🥁</div>
+              </div>
+              <div class="story-label">Practice</div>
+            </div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-avatar">🎹</div>
+              </div>
+              <div class="story-label">Keys</div>
+            </div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-avatar">🦉</div>
+              </div>
+              <div class="story-label">Sketches</div>
             </div>
           </div>
-          <div class="owl-doodle">🦉</div>
         </div>
-        <div class="post-item">
-          <div class="post-content">
-            <span class="post-emoji">💿</span>
-            <div>Record collection</div>
-            <div class="post-caption">"This one feels like home"</div>
-          </div>
-        </div>
-        <div class="post-item">
-          <div class="post-content">
-            <span class="post-emoji">🐰</span>
-            <div>Thistle on keyboard</div>
-            <div class="post-caption">"My best audience"</div>
-          </div>
-        </div>
-        <div class="post-item">
-          <div class="video-indicator">🎥</div>
-          <div class="post-content">
-            <span class="post-emoji">🌧️</span>
-            <div>Rain rhythms</div>
-            <div class="post-caption">"Nature's percussion"</div>
-          </div>
-        </div>
-        <div class="post-item">
-          <div class="post-content">
-            <span class="post-emoji">☕</span>
-            <div>Morning tea setup</div>
-            <div class="post-caption">"Pre-practice ritual"</div>
-          </div>
-        </div>
-        <div class="post-item">
-          <div class="post-content">
-            <span class="post-emoji">🎧</span>
-            <div>Headphone sessions</div>
-            <div class="post-caption">"Lost in the mix"</div>
-          </div>
-          <div class="owl-doodle">🦉</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Reels Section -->
-    <div id="reels" class="reels-section">
-      <div class="reels-grid">
-        <div class="reel-item">
-          <div class="reel-content">
-            <span class="reel-emoji">🥁</span>
-            <div>Quick drum fills</div>
-          </div>
-        </div>
-        <div class="reel-item">
-          <div class="reel-content">
-            <span class="reel-emoji">🎹</span>
-            <div>Synth tricks</div>
-          </div>
-        </div>
-        <div class="reel-item">
-          <div class="reel-content">
-            <span class="reel-emoji">🎵</span>
-            <div>Practice moments</div>
-          </div>
-        </div>
-        <div class="reel-item">
-          <div class="reel-content">
-            <span class="reel-emoji">🌧️</span>
-            <div>Rain beats</div>
-          </div>
-        </div>
-        <div class="reel-item">
-          <div class="reel-content">
-            <span class="reel-emoji">🦉</span>
-            <div>Sketch timelapse</div>
-          </div>
-        </div>
-        <div class="reel-item">
-          <div class="reel-content">
-            <span class="reel-emoji">🐰</span>
-            <div>Thistle cameo</div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <!-- Feed Posts -->
+        <div class="feed-container">
+          <!-- Post 1 -->
+          <article class="post">
+            <div class="post-header">
+              <div class="post-author">
+                <div class="author-avatar">🥁</div>
+                <div class="author-info">
+                  <div class="author-name">milo_beats</div>
+                  <div class="post-location">Market District Studio</div>
+                </div>
+              </div>
+              <div class="post-menu">⋯</div>
+            </div>
+            <div class="post-media">
+              <div class="media-placeholder">
+                <span class="media-emoji">🥁</span>
+                <div class="media-text">Drum practice closeup</div>
+                <div class="media-caption">"Rainy morning groove"</div>
+              </div>
+            </div>
+            <div class="post-actions">
+              <div class="action-buttons">
+                <div class="action-btn">❤️</div>
+                <div class="action-btn">💬</div>
+                <div class="action-btn">📤</div>
+              </div>
+              <div class="bookmark-btn">🔖</div>
+            </div>
+            <div class="post-stats">
+              <div class="likes-count">47 likes</div>
+            </div>
+            <div class="post-content">
+              <div class="post-caption">
+                <span class="username">milo_beats</span>
+                Finding my rhythm in the rain 🌧️ Sometimes the best beats come from the quietest moments.
+              </div>
+              <div class="post-time">2 hours ago</div>
+            </div>
+          </article>
 
-    <!-- Tagged Section -->
-    <div id="tagged" class="tagged-section">
-      <div class="tagged-icon">👤</div>
-      <div class="tagged-text">No Photos</div>
-      <div class="tagged-subtext">
-        When people tag you in photos, they'll appear here.
-      </div>
+          <!-- Post 2 -->
+          <article class="post">
+            <div class="post-header">
+              <div class="post-author">
+                <div class="author-avatar">🥁</div>
+                <div class="author-info">
+                  <div class="author-name">milo_beats</div>
+                  <div class="post-location">Home Studio</div>
+                </div>
+              </div>
+              <div class="post-menu">⋯</div>
+            </div>
+            <div class="post-media">
+              <div class="media-placeholder">
+                <span class="media-emoji">🎹</span>
+                <div class="media-text">Synth jam at sunset</div>
+                <div class="media-caption">"Soundtrack for a quiet night"</div>
+              </div>
+            </div>
+            <div class="post-actions">
+              <div class="action-buttons">
+                <div class="action-btn">❤️</div>
+                <div class="action-btn">💬</div>
+                <div class="action-btn">📤</div>
+              </div>
+              <div class="bookmark-btn">🔖</div>
+            </div>
+            <div class="post-stats">
+              <div class="likes-count">32 likes</div>
+            </div>
+            <div class="post-content">
+              <div class="post-caption">
+                <span class="username">milo_beats</span>
+                Golden hour sessions hit different ✨ When the light is perfect and the sounds just flow.
+              </div>
+              <div class="post-time">5 hours ago</div>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="post">
+            <div class="post-header">
+              <div class="post-author">
+                <div class="author-avatar">🥁</div>
+                <div class="author-info">
+                  <div class="author-name">milo_beats</div>
+                  <div class="post-location">Wildfire Veil Studio</div>
+                </div>
+              </div>
+              <div class="post-menu">⋯</div>
+            </div>
+            <div class="post-media">
+              <div class="media-placeholder">
+                <span class="media-emoji">🎵</span>
+                <div class="media-text">Band photo</div>
+                <div class="media-caption">"Steady heart, wild friends"</div>
+              </div>
+            </div>
+            <div class="post-actions">
+              <div class="action-buttons">
+                <div class="action-btn liked">❤️</div>
+                <div class="action-btn">💬</div>
+                <div class="action-btn">📤</div>
+              </div>
+              <div class="bookmark-btn">🔖</div>
+            </div>
+            <div class="post-stats">
+              <div class="likes-count">128 likes</div>
+            </div>
+            <div class="post-content">
+              <div class="post-caption">
+                <span class="username">milo_beats</span>
+                The crew that makes the magic happen 🎶 @wildfireveil forever grateful for these amazing humans.
+              </div>
+              <div class="post-time">1 day ago</div>
+            </div>
+          </article>
+        </div>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="right-sidebar">
+        <!-- User Profile Card -->
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-pic">
+              <div class="profile-pic-inner">🥁</div>
+            </div>
+            <div class="profile-info">
+              <div class="profile-username">milo_beats</div>
+              <div class="profile-name">Milo Dray</div>
+            </div>
+            <button class="switch-btn">Switch</button>
+          </div>
+        </div>
+
+        <!-- Suggestions -->
+        <div class="suggestions-section">
+          <div class="suggestions-header">
+            <span>Suggestions for you</span>
+            <button class="see-all-btn">See All</button>
+          </div>
+          <div class="suggestion-item">
+            <div class="suggestion-avatar">🎸</div>
+            <div class="suggestion-info">
+              <div class="suggestion-username">guitar_zen</div>
+              <div class="suggestion-reason">Follows you</div>
+            </div>
+            <button class="follow-btn">Follow</button>
+          </div>
+          <div class="suggestion-item">
+            <div class="suggestion-avatar">🎤</div>
+            <div class="suggestion-info">
+              <div class="suggestion-username">vocal_vibes</div>
+              <div class="suggestion-reason">New to Instagram</div>
+            </div>
+            <button class="follow-btn">Follow</button>
+          </div>
+          <div class="suggestion-item">
+            <div class="suggestion-avatar">🎺</div>
+            <div class="suggestion-info">
+              <div class="suggestion-username">brass_beats</div>
+              <div class="suggestion-reason">Suggested for you</div>
+            </div>
+            <button class="follow-btn">Follow</button>
+          </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <div class="footer-text">
+            About · Help · Press · API · Jobs · Privacy · Terms<br>
+            Locations · Language · Meta Verified
+          </div>
+          <div class="footer-copyright">
+            © 2024 Instagram from Meta
+          </div>
+        </div>
+      </aside>
     </div>
 
     <!-- Secret Highlight -->
     <div class="secret-highlight" title="Owl beats - secret instrumental">
       🦉
-    </div>
-
-    <!-- Instagram Bottom Navigation -->
-    <div class="bottom-nav">
-      <div class="nav-item">🏠</div>
-      <div class="nav-item">🔍</div>
-      <div class="nav-item">➕</div>
-      <div class="nav-item">❤️</div>
-      <div class="nav-item active">👤</div>
     </div>
   </div>
 
