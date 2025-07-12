@@ -6,7 +6,690 @@
   <title>Instagram • milo_beats</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="instagram.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      background: #fafafa;
+      color: #262626;
+      min-height: 100vh;
+    }
+
+    .instagram-desktop {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Desktop Header */
+    .desktop-header {
+      background: #fff;
+      border-bottom: 1px solid #dbdbdb;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 60px;
+    }
+
+    .header-container {
+      max-width: 975px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 20px;
+    }
+
+    .instagram-logo {
+      font-size: 29px;
+      font-weight: 400;
+      font-family: 'Caveat', cursive;
+      color: #262626;
+      cursor: pointer;
+      letter-spacing: -1px;
+    }
+
+    .search-bar {
+      position: relative;
+      width: 268px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 8px 16px;
+      background: #efefef;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .search-input:focus {
+      border-color: #a8a8a8;
+      background: #fff;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8e8e8e;
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-icon {
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      color: #262626;
+    }
+
+    .nav-icon:hover {
+      color: #8e8e8e;
+      transform: scale(1.1);
+    }
+
+    /* Main Layout */
+    .desktop-main {
+      display: flex;
+      max-width: 975px;
+      margin: 0 auto;
+      padding-top: 60px;
+      min-height: 100vh;
+      gap: 28px;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      width: 244px;
+      padding: 24px 20px;
+      position: fixed;
+      left: 0;
+      top: 60px;
+      height: calc(100vh - 60px);
+      background: #fff;
+      border-right: 1px solid #dbdbdb;
+    }
+
+    .sidebar-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      gap: 16px;
+    }
+
+    .sidebar-item:hover {
+      background: #f2f2f2;
+    }
+
+    .sidebar-item.active {
+      background: #f2f2f2;
+      font-weight: 600;
+    }
+
+    .sidebar-icon {
+      font-size: 24px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .sidebar-text {
+      font-size: 16px;
+      color: #262626;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      margin-left: 244px;
+      margin-right: 320px;
+      padding: 24px 0;
+      max-width: 470px;
+    }
+
+    /* Stories Section */
+    .stories-section {
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stories-container {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .stories-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .story-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      min-width: 66px;
+      transition: transform 0.2s ease;
+    }
+
+    .story-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .story-ring {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      padding: 2px;
+      margin-bottom: 4px;
+    }
+
+    .story-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      border: 2px solid #fff;
+    }
+
+    .story-label {
+      font-size: 12px;
+      color: #262626;
+      text-align: center;
+      max-width: 66px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* Feed Posts */
+    .feed-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .post {
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+    }
+
+    .post-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f58529, #dd2a7b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #262626;
+    }
+
+    .post-location {
+      font-size: 12px;
+      color: #8e8e8e;
+    }
+
+    .post-menu {
+      font-size: 24px;
+      cursor: pointer;
+      color: #262626;
+      padding: 8px;
+    }
+
+    .post-media {
+      position: relative;
+      width: 100%;
+      height: 470px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .media-emoji {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .media-text {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .media-caption {
+      font-size: 14px;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    .post-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .action-btn {
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+      transition: all 0.15s ease;
+      color: #262626;
+    }
+
+    .action-btn:hover {
+      color: #8e8e8e;
+      transform: scale(1.1);
+    }
+
+    .action-btn.liked {
+      color: #ed4956;
+    }
+
+    .bookmark-btn {
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+      transition: all 0.15s ease;
+      color: #262626;
+    }
+
+    .bookmark-btn:hover {
+      color: #8e8e8e;
+      transform: scale(1.1);
+    }
+
+    .post-stats {
+      padding: 0 16px;
+      margin-bottom: 8px;
+    }
+
+    .likes-count {
+      font-size: 14px;
+      font-weight: 600;
+      color: #262626;
+    }
+
+    .post-content {
+      padding: 0 16px 16px;
+    }
+
+    .post-caption {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #262626;
+      margin-bottom: 8px;
+    }
+
+    .username {
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .post-time {
+      font-size: 12px;
+      color: #8e8e8e;
+      text-transform: uppercase;
+    }
+
+    /* Right Sidebar */
+    .right-sidebar {
+      width: 320px;
+      padding: 24px 20px;
+      position: fixed;
+      right: 0;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+    }
+
+    .profile-card {
+      margin-bottom: 24px;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-pic {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f58529, #dd2a7b);
+      padding: 2px;
+    }
+
+    .profile-pic-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      border: 2px solid #fff;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-username {
+      font-size: 14px;
+      font-weight: 600;
+      color: #262626;
+    }
+
+    .profile-name {
+      font-size: 14px;
+      color: #8e8e8e;
+    }
+
+    .switch-btn {
+      background: none;
+      border: none;
+      color: #0095f6;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .suggestions-section {
+      margin-bottom: 24px;
+    }
+
+    .suggestions-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .suggestions-header span {
+      font-size: 14px;
+      font-weight: 600;
+      color: #8e8e8e;
+    }
+
+    .see-all-btn {
+      background: none;
+      border: none;
+      color: #262626;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .suggestion-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .suggestion-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .suggestion-info {
+      flex: 1;
+    }
+
+    .suggestion-username {
+      font-size: 14px;
+      font-weight: 600;
+      color: #262626;
+    }
+
+    .suggestion-reason {
+      font-size: 12px;
+      color: #8e8e8e;
+    }
+
+    .follow-btn {
+      background: none;
+      border: none;
+      color: #0095f6;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .footer-links {
+      margin-top: 32px;
+    }
+
+    .footer-text {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #c7c7c7;
+      margin-bottom: 16px;
+    }
+
+    .footer-copyright {
+      font-size: 11px;
+      color: #c7c7c7;
+    }
+
+    /* Secret Highlight */
+    .secret-highlight {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.8rem;
+      animation: gentle-pulse 3s ease-in-out infinite;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      border: 3px solid #fff;
+      transition: all 0.3s ease;
+    }
+
+    .secret-highlight:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes gentle-pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.9;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+    }
+
+    @keyframes heartFloat {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(1.5);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .right-sidebar {
+        display: none;
+      }
+      
+      .main-content {
+        margin-right: 0;
+        max-width: 614px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 80px;
+      }
+      
+      .sidebar-text {
+        display: none;
+      }
+      
+      .main-content {
+        margin-left: 80px;
+      }
+      
+      .header-center {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sidebar {
+        display: none;
+      }
+      
+      .main-content {
+        margin-left: 0;
+        padding: 24px 16px;
+      }
+      
+      .post-media {
+        height: 400px;
+      }
+      
+      .media-emoji {
+        font-size: 3rem;
+      }
+    }
+
+    /* Accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* Smooth animations */
+    * {
+      transition: color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+    }
+
+    /* Hover effects */
+    .post:hover {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-item:hover .story-ring {
+      transform: scale(1.05);
+    }
+
+    .suggestion-item:hover {
+      background: rgba(0, 0, 0, 0.02);
+      border-radius: 4px;
+      padding: 4px;
+      margin: -4px 0 12px -4px;
+    }
+  </style>
   <!-- CRITICAL: DO NOT REMOVE/MODIFY THIS COMMENT OR THE SCRIPT BELOW -->
   <script src="https://blink.new/auto-engineer.js?projectId=instagram-clone-website-rpc8yur4" type="module"></script>
 </head>
@@ -41,35 +724,35 @@
       <!-- Left Sidebar -->
       <aside class="sidebar">
         <div class="sidebar-content">
-          <div class="sidebar-item active">
+          <div class="sidebar-item active" data-tab="home">
             <div class="sidebar-icon">🏠</div>
             <span class="sidebar-text">Home</span>
           </div>
-          <div class="sidebar-item">
+          <div class="sidebar-item" data-tab="search">
             <div class="sidebar-icon">🔍</div>
             <span class="sidebar-text">Search</span>
           </div>
-          <div class="sidebar-item">
+          <div class="sidebar-item" data-tab="explore">
             <div class="sidebar-icon">🧭</div>
             <span class="sidebar-text">Explore</span>
           </div>
-          <div class="sidebar-item">
+          <div class="sidebar-item" data-tab="reels">
             <div class="sidebar-icon">🎬</div>
             <span class="sidebar-text">Reels</span>
           </div>
-          <div class="sidebar-item">
+          <div class="sidebar-item" data-tab="messages">
             <div class="sidebar-icon">💬</div>
             <span class="sidebar-text">Messages</span>
           </div>
-          <div class="sidebar-item">
+          <div class="sidebar-item" data-tab="notifications">
             <div class="sidebar-icon">❤️</div>
             <span class="sidebar-text">Notifications</span>
           </div>
-          <div class="sidebar-item">
+          <div class="sidebar-item" data-tab="create">
             <div class="sidebar-icon">➕</div>
             <span class="sidebar-text">Create</span>
           </div>
-          <div class="sidebar-item">
+          <div class="sidebar-item" data-tab="profile">
             <div class="sidebar-icon">👤</div>
             <span class="sidebar-text">Profile</span>
           </div>
@@ -308,6 +991,360 @@
     </div>
   </div>
 
-  <script src="instagram.js"></script>
+  <script>
+    // Desktop Instagram functionality
+
+    // Post interaction handlers
+    function initializePostInteractions() {
+      // Like button interactions
+      document.querySelectorAll('.action-btn').forEach(btn => {
+        if (btn.textContent.includes('❤️')) {
+          btn.addEventListener('click', function() {
+            if (this.classList.contains('liked')) {
+              this.classList.remove('liked');
+              updateLikesCount(this, -1);
+            } else {
+              this.classList.add('liked');
+              updateLikesCount(this, 1);
+              // Add heart animation
+              createHeartAnimation(this);
+            }
+          });
+        }
+      });
+
+      // Follow button interactions
+      document.querySelectorAll('.follow-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (this.textContent === 'Follow') {
+            this.textContent = 'Following';
+            this.style.color = '#8e8e8e';
+          } else {
+            this.textContent = 'Follow';
+            this.style.color = '#0095f6';
+          }
+        });
+      });
+    }
+
+    // Update likes count
+    function updateLikesCount(likeBtn, change) {
+      const post = likeBtn.closest('.post');
+      const likesElement = post.querySelector('.likes-count');
+      const currentCount = parseInt(likesElement.textContent.match(/\d+/)[0]);
+      const newCount = currentCount + change;
+      likesElement.textContent = `${newCount} like${newCount !== 1 ? 's' : ''}`;
+    }
+
+    // Create heart animation when liking
+    function createHeartAnimation(element) {
+      const heart = document.createElement('div');
+      heart.innerHTML = '❤️';
+      heart.style.cssText = `
+        position: absolute;
+        font-size: 20px;
+        color: #ed4956;
+        pointer-events: none;
+        z-index: 1000;
+        animation: heartFloat 1s ease-out forwards;
+      `;
+      
+      const rect = element.getBoundingClientRect();
+      heart.style.left = rect.left + 'px';
+      heart.style.top = rect.top + 'px';
+      
+      document.body.appendChild(heart);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 1000);
+    }
+
+    // Story interactions
+    function initializeStoryInteractions() {
+      document.querySelectorAll('.story-item').forEach(story => {
+        story.addEventListener('click', function() {
+          // Simulate story viewed
+          const ring = this.querySelector('.story-ring');
+          ring.style.background = 'linear-gradient(45deg, #c7c7c7, #8e8e8e)';
+          
+          // Create story viewer modal (simplified)
+          showStoryViewer(this);
+        });
+      });
+    }
+
+    // Show story viewer (simplified version)
+    function showStoryViewer(storyElement) {
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      `;
+      
+      const storyContent = document.createElement('div');
+      const storyText = storyElement.querySelector('.story-label').textContent;
+      const storyEmoji = storyElement.querySelector('.story-avatar').textContent;
+      
+      storyContent.innerHTML = `
+        <div style="
+          width: 400px;
+          height: 600px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border-radius: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          text-align: center;
+          position: relative;
+        ">
+          <div style="font-size: 4rem; margin-bottom: 20px;">${storyEmoji}</div>
+          <div style="font-size: 24px; font-weight: 600; margin-bottom: 10px;">milo_beats</div>
+          <div style="font-size: 18px; opacity: 0.9;">${storyText}</div>
+          <div style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer;">✕</div>
+        </div>
+      `;
+      
+      modal.appendChild(storyContent);
+      document.body.appendChild(modal);
+      
+      // Close modal on click
+      modal.addEventListener('click', function() {
+        document.body.removeChild(modal);
+      });
+      
+      // Auto close after 3 seconds
+      setTimeout(() => {
+        if (document.body.contains(modal)) {
+          document.body.removeChild(modal);
+        }
+      }, 3000);
+    }
+
+    // Sidebar navigation
+    function initializeSidebarNavigation() {
+      document.querySelectorAll('.sidebar-item').forEach(item => {
+        item.addEventListener('click', function() {
+          // Remove active from all items
+          document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+          // Add active to clicked item
+          this.classList.add('active');
+          
+          // Get the tab data
+          const tabData = this.getAttribute('data-tab');
+          const text = this.querySelector('.sidebar-text')?.textContent || '';
+          console.log(`✨ Navigating to: ${text} (${tabData})`);
+          
+          // You can extend this with actual content switching
+          if (tabData === 'profile') {
+            // Show profile content
+            console.log('📸 Switching to profile view');
+          } else if (tabData === 'messages') {
+            // Show messages
+            console.log('💬 Opening messages');
+          } else if (tabData === 'search') {
+            // Focus search
+            const searchInput = document.querySelector('.search-input');
+            if (searchInput) {
+              searchInput.focus();
+            }
+          }
+        });
+      });
+    }
+
+    // Search functionality
+    function initializeSearch() {
+      const searchInput = document.querySelector('.search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase();
+          if (query.length > 2) {
+            // Simulate search suggestions
+            showSearchSuggestions(query);
+          } else {
+            hideSearchSuggestions();
+          }
+        });
+        
+        searchInput.addEventListener('blur', function() {
+          setTimeout(hideSearchSuggestions, 200);
+        });
+      }
+    }
+
+    // Show search suggestions
+    function showSearchSuggestions(query) {
+      let dropdown = document.querySelector('.search-dropdown');
+      if (!dropdown) {
+        dropdown = document.createElement('div');
+        dropdown.className = 'search-dropdown';
+        dropdown.style.cssText = `
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          border: 1px solid #dbdbdb;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+          max-height: 300px;
+          overflow-y: auto;
+        `;
+        document.querySelector('.search-bar').appendChild(dropdown);
+      }
+      
+      // Mock search results
+      const suggestions = [
+        { type: 'user', name: 'milo_beats', subtitle: 'Milo Dray • Following' },
+        { type: 'user', name: 'guitar_zen', subtitle: 'Guitar enthusiast' },
+        { type: 'hashtag', name: '#music', subtitle: '2.1M posts' },
+        { type: 'hashtag', name: '#drums', subtitle: '845K posts' }
+      ].filter(item => item.name.toLowerCase().includes(query));
+      
+      dropdown.innerHTML = suggestions.map(item => `
+        <div style="
+          padding: 12px 16px;
+          cursor: pointer;
+          border-bottom: 1px solid #efefef;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        " onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'">
+          <div style="
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: ${item.type === 'user' ? 'linear-gradient(45deg, #f58529, #dd2a7b)' : '#efefef'};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+          ">${item.type === 'user' ? '👤' : '#'}</div>
+          <div>
+            <div style="font-size: 14px; font-weight: 600; color: #262626;">${item.name}</div>
+            <div style="font-size: 12px; color: #8e8e8e;">${item.subtitle}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Hide search suggestions
+    function hideSearchSuggestions() {
+      const dropdown = document.querySelector('.search-dropdown');
+      if (dropdown) {
+        dropdown.remove();
+      }
+    }
+
+    // Secret highlight functionality
+    function initializeSecretHighlight() {
+      const secretBtn = document.querySelector('.secret-highlight');
+      if (secretBtn) {
+        secretBtn.addEventListener('click', function() {
+          this.style.animation = 'none';
+          this.style.background = 'linear-gradient(135deg, #a8b8c8 0%, #8fa0b3 100%)';
+          this.innerHTML = '🎵';
+
+          // Create notification
+          const notification = document.createElement('div');
+          notification.innerHTML = '🦉 Secret instrumental unlocked - "Owl Beats at Midnight"';
+          notification.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            color: #262626;
+            padding: 20px 32px;
+            border-radius: 12px;
+            z-index: 10000;
+            font-size: 16px;
+            font-weight: 500;
+            border: 1px solid #dbdbdb;
+            text-align: center;
+            max-width: 320px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
+          `;
+
+          document.body.appendChild(notification);
+
+          setTimeout(() => {
+            notification.remove();
+          }, 3000);
+        });
+      }
+    }
+
+    // Keyboard shortcuts
+    function initializeKeyboardShortcuts() {
+      document.addEventListener('keydown', function(e) {
+        // Like post with 'L' key
+        if (e.key === 'l' || e.key === 'L') {
+          const firstPost = document.querySelector('.post');
+          if (firstPost) {
+            const likeBtn = firstPost.querySelector('.action-btn');
+            if (likeBtn) {
+              likeBtn.click();
+            }
+          }
+        }
+        
+        // Focus search with '/' key
+        if (e.key === '/') {
+          e.preventDefault();
+          const searchInput = document.querySelector('.search-input');
+          if (searchInput) {
+            searchInput.focus();
+          }
+        }
+      });
+    }
+
+    // Initialize all functionality when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      initializePostInteractions();
+      initializeStoryInteractions();
+      initializeSidebarNavigation();
+      initializeSearch();
+      initializeSecretHighlight();
+      initializeKeyboardShortcuts();
+      
+      console.log('🎵 Desktop Instagram loaded - Press "/" to search, "L" to like!');
+      console.log('✨ Click on the sidebar tabs to navigate!');
+    });
+
+    // Add smooth scrolling behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    // Add loading animation for initial posts
+    window.addEventListener('load', function() {
+      const posts = document.querySelectorAll('.post');
+      posts.forEach((post, index) => {
+        post.style.opacity = '0';
+        post.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+          post.style.transition = 'all 0.6s ease';
+          post.style.opacity = '1';
+          post.style.transform = 'translateY(0)';
+        }, index * 200);
+      });
+    });
+  </script>
 </body>
 </html>
